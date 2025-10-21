@@ -8,6 +8,9 @@ import {
 
 // Importação das páginas
 import Login from "./pages/Login/Login.js";
+import Lista from "./pages/Lista/Lista.js";
+import Home from "./pages/Home/Home.js";
+import Cadastro from "./pages/Cadastro/Cadastro.js";
 
 // importação do NavBar (menu principal)
 import NavBar from "./components/NavBar/NavBar.js";
@@ -58,22 +61,24 @@ function App() {
           element={
             isAuthenticated ? (
               <Cadastro contacts={contacts} setContacts={setContacts} />
-            ) : (<Navigate to="/login" />)
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
 
-        <Route 
+        <Route
           path="/lista"
-          element= {
-            isAuthenticated ? (<Lista contacts={contacts} setContacts={setContacts} />) :
-            (<Navigate to="/login" />)
+          element={
+            isAuthenticated ? (
+              <Lista contacts={contacts} setContacts={setContacts} />
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
 
-        <Route 
-          path="*"
-          element= {<Navigate to="/login" />}
-        />
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </Router>
   );
